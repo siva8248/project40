@@ -68,7 +68,7 @@ function draw() {
  
   if (gameState===PLAY){
     score = score + Math.round(getFrameRate()/60);
-    ground.velocityX = -(6 + 3*score/1000);
+    ground.velocityX = -(6 + 3*score/50);
     if(touches.length>0||keyDown("space") && trex.y >= height-250) {
       trex.velocityY = -13;
       touches=[];
@@ -80,7 +80,7 @@ function draw() {
     trex.collide(invisibleGround);
     spawnClouds();
     spawnObstacles(); 
-    if(score >100){
+    if(score >1000){
       gameState = END;     
     }
     if(obstaclesGroup.isTouching(trex)){
